@@ -5,8 +5,9 @@ class EditText extends react.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: this.props.value,
+            value: this.props.value, //what i put in general info for value=''
             edit: 0,
+            doctor: 3,
         }
 
         this.setEdit = this.setEdit.bind(this);
