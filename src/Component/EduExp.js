@@ -15,7 +15,18 @@ class EduExp extends react.Component {
             data: [],
         }
 
+        this.delEdu = this.delEdu.bind(this);
         this.setEdit = this.setEdit.bind(this)
+    }
+
+    delEdu = (index) => {
+        this.setState((prevState) => {
+            let prevData = prevState.data.map(e => e);
+            prevData.splice(index, 1);
+            return {
+                data: prevData
+            }
+        })
     }
 
     updateSchool = (e) => {
@@ -36,7 +47,6 @@ class EduExp extends react.Component {
     }
 
     setEdit = () => {
-        console.log(this.state.edit)
         this.setState({
             edit: 1,
         })        
@@ -45,14 +55,13 @@ class EduExp extends react.Component {
     showEdu = () => {
         let subButton = <VisButton value="Add" onClick={this.setEdit} className="button"/>
         if (this.state.data.length === 0) {
-            console.log('this')
             return subButton
         } else {
-            console.log('fuck')
-            console.log(this.data)
             let data = [];
+            console.log(this.state.data)
             for (let i = 0; i < this.state.data.length; i++) {
-                data.push(<ShowData key={i} index={i} button={this.props.button} school={this.state.data[i].company} from={this.state.data[i].title} to={this.state.data[i].tasks} qual={this.state.data[i].exp} />)
+                console.log(this.state.data[0].school) //does console school
+                data.push(<ShowData key={i} index={i} button={this.props.button} school={this.state.data[i].school} from={this.state.data[i].from} to={this.state.data[i].to} qualification={this.state.data[i].qualification} delData={this.delEdu} />)
             }
             return(
                 <div className="ShowEdu">
@@ -90,10 +99,17 @@ class EduExp extends react.Component {
             to: this.state.to,
             qualification: this.state.qualification,
         };
+        
+
+
+        // this.setState({
+        //     data: this.state.data.push(data)
+        // })
 
         this.setState((prevState) => {
             let prevData = prevState.data.map(e => e);
             prevData.push(data);
+            console.log(prevData)
             return {
                 data: prevData,
                 edit: 0
