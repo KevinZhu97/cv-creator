@@ -16,7 +16,7 @@ class ShowData extends react.Component {
                     <label className="wide">To : </label><label>{this.props.to} </label>
                 </div>
                 <div>
-                    <label className="wide">Qualifcation : </label> <label>{this.props.qual} </label>
+                    <label className="wide">Qualifcation : </label> <label>{this.props.qualification} </label>
                 </div>
             </div>
             {/* <input type="button" value="delete" className="button delBtn" onClick={() => { this.props.delData(this.props.index) }}></input> */}
