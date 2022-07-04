@@ -15,6 +15,8 @@ class EduExp extends react.Component {
             data: [],
         }
 
+        // this.state = this.state.getEdu
+
         this.delEdu = this.delEdu.bind(this);
         this.setEdit = this.setEdit.bind(this)
     }
@@ -53,7 +55,7 @@ class EduExp extends react.Component {
     }
 
     showEdu = () => {
-        let subButton = <VisButton value="Add" onClick={this.setEdit} className="button"/>
+        let subButton = <VisButton value="Add" onClick={this.setEdit} className="button" render={this.props.button}/>
         if (this.state.data.length === 0) {
             return subButton
         } else {

@@ -3,9 +3,6 @@ import GeneralInfo from './Component/GeneralInfo'
 import EduExp from './Component/EduExp'
 import PraExp from './Component/PraExp'
 
-
-
-
 class App extends React.Component {
   constructor() {
     super();
@@ -63,9 +60,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <GeneralInfo/>
-        <EduExp/>
+        <GeneralInfo buttons={this.state.buttons}/>
+        <EduExp button={this.state.buttons}/>
         <PraExp button={this.state.buttons} PraExp={this.state.PraExp}/>
+        <input type='button' value={this.state.btnVal} onClick={this.viewBut}></input>
       </div>
     );
   }
